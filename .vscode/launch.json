@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Hands-on lab/Resources/Fabrikam.FieldDevice.Generator/bin/Debug/netcoreapp2.2/Fabrikam.FieldDevice.Generator.dll",
+            "program": "${workspaceFolder}/Hands-on lab/Resources/FieldDeviceSimulator/Fabrikam.FieldDevice.Generator/bin/Debug/netcoreapp2.2/Fabrikam.FieldDevice.Generator.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Hands-on lab/Resources/Fabrikam.FieldDevice.Generator",
+            "cwd": "${workspaceFolder}/Hands-on lab/Resources/FieldDeviceSimulator/Fabrikam.FieldDevice.Generator",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "externalTerminal",
             "stopAtEntry": false
