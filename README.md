@@ -41,7 +41,7 @@ At the end of this hands-on-lab, you will be better able to implement an IoT-bas
 - Azure Event Hubs
 - Azure Functions
 - Azure Storage
-- Microsoft Flow
+- Azure Logic Apps
 
 ## Related references
 
