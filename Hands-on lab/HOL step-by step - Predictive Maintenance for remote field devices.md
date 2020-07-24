@@ -61,7 +61,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 1: Create an Azure Function Application](#task-1-create-an-azure-function-application)
     - [Task 2: Create a notification table in Azure Storage](#task-2-create-a-notification-table-in-azure-storage)
     - [Task 3: Create a notification queue in Azure Storage](#task-3-create-a-notification-queue-in-azure-storage)
-    - [Task 4: Create notification service in Microsoft Flow](#task-4-create-notification-service-in-microsoft-flow)
+    - [Task 4: Create notification service with Azure Logic Apps](#task-4-create-notification-service-with-azure-logic-apps)
     - [Task 5: Obtain connection settings for use with the Azure Function implementation](#task-5-obtain-connection-settings-for-use-with-the-azure-function-implementation)
     - [Task 6: Create the local settings file for the Azure Functions project](#task-6-create-the-local-settings-file-for-the-azure-functions-project)
     - [Task 7: Review the Azure Function code](#task-7-review-the-azure-function-code)
@@ -91,7 +91,7 @@ The Predictive Maintenance for Remote Field Devices hands-on lab is an exercise 
 
 ![The architecture diagram shows the components of the preferred solution.](media/preferred-solution.png "High-level architecture")
 
-[Azure IoT Central](https://docs.microsoft.com/azure/iot-central/overview-iot-central) is at the core of the preferred solution. It is used for data ingest, device management, data storage, and reporting. IoT field devices securely connect to IoT Central through its cloud gateway. The continuous export component sends device telemetry data to [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) for cold storage, and the same data to [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about) for real-time processing. Azure Databricks uses the data stored in cold storage to periodically re-train a Machine Learning (ML) model to detect oil pump failures. It is also used to deploy the trained model to a web service hosted by [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) (AKS) or [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI), using [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml). An [Azure function](https://docs.microsoft.com/azure/azure-functions/functions-overview) is triggered by events flowing through Event Hubs. It sends the event data for each pump to the web service hosting the deployed model, then sends an alert through [Microsoft Flow](https://flow.microsoft.com/) if an alert has not been sent within a configurable period of time. The alert is sent in the form of an email, identifying the failing oil pump with a suggestion to service the device.
+[Azure IoT Central](https://docs.microsoft.com/azure/iot-central/overview-iot-central) is at the core of the preferred solution. It is used for data ingest, device management, data storage, and reporting. IoT field devices securely connect to IoT Central through its cloud gateway. The continuous export component sends device telemetry data to [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) for cold storage, and the same data to [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about) for real-time processing. Azure Databricks uses the data stored in cold storage to periodically re-train a Machine Learning (ML) model to detect oil pump failures. It is also used to deploy the trained model to a web service hosted by [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) (AKS) or [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI), using [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml). An [Azure function](https://docs.microsoft.com/azure/azure-functions/functions-overview) is triggered by events flowing through Event Hubs. It sends the event data for each pump to the web service hosting the deployed model, then sends an alert through [Azure Logic Apps](https://azure.microsoft.com/en-us/services/logic-apps/) if an alert has not been sent within a configurable period of time. The alert is sent in the form of an email, identifying the failing oil pump with a suggestion to service the device.
 
 _Azure IoT Central architecture_
 
@@ -551,7 +551,7 @@ It is beneficial to see the location and power state of certain critical Texas r
 
 Duration: 15 minutes
 
-IoT Central provides a great first stepping stone into a larger IoT solution. Earlier in this lab, we responded to a crossed threshold by initiating an email sent to Fabrikam field workers through Flow directly from IoT Central. While this approach certainly does add value, a more mature IoT solution typically involves a machine learning model that will process incoming telemetry to logically determine if a failure of a pump is imminent. The first step into this implementation is to create an Event Hub to act as a destination for IoT Centrals continuously exported data.
+IoT Central provides a great first stepping stone into a larger IoT solution. Earlier in this lab, we responded to a crossed threshold by initiating an email sent to Fabrikam field workers through Logic Apps directly from IoT Central. While this approach certainly does add value, a more mature IoT solution typically involves a machine learning model that will process incoming telemetry to logically determine if a failure of a pump is imminent. The first step into this implementation is to create an Event Hub to act as a destination for IoT Centrals continuously exported data.
 
 ### Task 1: Create an Event Hub
 
@@ -684,7 +684,7 @@ After training the model, we validate it, then register the model in your Azure 
 
 Duration: 45 minutes
 
-We will be using an Azure Function to read incoming telemetry from IoT Hub and send it to the HTTP endpoint of our predictive maintenance model. The function will receive a 0 or 1 from the model indicating whether or not a pump should be maintained to avoid possible failure. A notification will also be initiated through Flow to notify Field Workers of the maintenance required.
+We will be using an Azure Function to read incoming telemetry from IoT Hub and send it to the HTTP endpoint of our predictive maintenance model. The function will receive a 0 or 1 from the model indicating whether or not a pump should be maintained to avoid possible failure. A notification will also be initiated through Logic Apps to notify Field Workers of the maintenance required.
 
 ### Task 1: Create an Azure Function Application
 
@@ -738,7 +738,7 @@ One of the things we would like to avoid is sending repeated notifications to th
 
 ### Task 3: Create a notification queue in Azure Storage
 
-There are many ways to trigger flows in Microsoft Flow. One of them is having Flow monitor an Azure Queue. We will use a Queue in our Azure Storage Account to host this queue.
+There are many ways to trigger workflows in Logic Apps. One of them is having a logic app monitor an Azure Queue. We will use a Queue in our Azure Storage Account to host this queue.
 
 1. From the Storage Account left-hand menu, select **Queues** located beneath the _Queue service_ section, then select the **+ Queue** button, and create a new queue named **flownotificationqueue**.
 
@@ -779,11 +779,11 @@ We will be using [Azure Logic Apps](https://azure.microsoft.com/en-us/services/l
 
    ![Available actions are displayed, enter Azure queues and click When there are messages in queue option.](media/logic-app-messages-in-queue.png "Select Messages in Queue")
 
-7. When prompted to connect to a storage account, select the storage account used as a notification queue in Task 3, enter *Notification Queue* under the Connection Name, then click **Create**. 
+7. When prompted to connect to a storage account, select the storage account used as a notification queue in Task 3. 
 
    ![Available storage accounts to connect to.](media/logic-app-queue-connection.png "Connect to Storage Account")
 
-8. To finalize your action configuration, enter *Notification Queue* under Queue Name - if prompted approve this as a custom value. Then click **+ New step**.
+8. Once your connection has been created, select *flownotificationqueue* under Queue Name, then click **+ New step**.
 
    ![Messages in queue action configuration.](media/logic-app-confirm-queue-setup.png "Finalize Queue Action Configuration.")
 
@@ -817,7 +817,7 @@ We will be using [Azure Logic Apps](https://azure.microsoft.com/en-us/services/l
 
     | Field       | Value                                                                               |
     | ----------- | ----------------------------------------------------------------------------------- |
-    | Queue Name  | Notification Queue                                                               |
+    | Queue Name  | flownotificationqueue                                                               |
     | Message ID  | _put cursor in the field, then select **Message ID** from the Dynamic Content menu_  |
     | Pop Receipt | _put cursor in the field, then select **Pop Receipt** from the Dynamic Content menu_ |
 
@@ -970,9 +970,5 @@ Duration: 10 minutes
 2. In the [Azure Portal](https://portal.azure.com), select **Resource Groups**, open the resource group that you created in Exercise 6, and select the **Delete resource group** button.
 
    ![The Azure Resource Group panel is displayed. The Delete resource group link is circled.](media/delete-resource-group.png "Delete the Resource Group")
-
-3. Delete Microsoft Flows that we created. Access Microsoft Flow and login. From the left-hand menu, select **My flows**. Select the ellipsis button next to each flow that we created in this lab and select **Delete**.
-
-   ![The Azure Flows panel is displayed. The ellipsis and delete links are circled.](media/delete-flow.png "Delete Microsoft Flow processes")
 
 You should follow all steps provided *after* attending the Hands-on lab.
