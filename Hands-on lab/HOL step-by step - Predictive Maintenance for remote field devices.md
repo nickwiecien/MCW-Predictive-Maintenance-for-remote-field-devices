@@ -817,7 +817,7 @@ We will be using [Azure Logic Apps](https://azure.microsoft.com/en-us/services/l
 
     | Field       | Value                                                                               |
     | ----------- | ----------------------------------------------------------------------------------- |
-    | Queue Name  | flownotificationqueue                                                               |
+    | Queue Name  | Notification Queue                                                               |
     | Message ID  | _put cursor in the field, then select **Message ID** from the Dynamic Content menu_  |
     | Pop Receipt | _put cursor in the field, then select **Pop Receipt** from the Dynamic Content menu_ |
 
