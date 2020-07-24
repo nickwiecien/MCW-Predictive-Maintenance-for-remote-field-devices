@@ -61,7 +61,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 1: Create an Azure Function Application](#task-1-create-an-azure-function-application)
     - [Task 2: Create a notification table in Azure Storage](#task-2-create-a-notification-table-in-azure-storage)
     - [Task 3: Create a notification queue in Azure Storage](#task-3-create-a-notification-queue-in-azure-storage)
-    - [Task 4: Create notification service in Logic Apps](#task-4-create-notification-service-with-azure-logic-apps)
+    - [Task 4: Create notification service in Logic Apps](#task-4-create-notification-service-in-logic-apps)
     - [Task 5: Obtain connection settings for use with the Azure Function implementation](#task-5-obtain-connection-settings-for-use-with-the-azure-function-implementation)
     - [Task 6: Create the local settings file for the Azure Functions project](#task-6-create-the-local-settings-file-for-the-azure-functions-project)
     - [Task 7: Review the Azure Function code](#task-7-review-the-azure-function-code)
