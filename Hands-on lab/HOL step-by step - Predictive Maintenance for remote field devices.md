@@ -758,7 +758,7 @@ We will be using [Azure Logic Apps](https://azure.microsoft.com/en-us/services/l
 
 3. From the top menu, select the **+ Add** button, and search for Logic App.
 
-4. Configure your logic app as follows, select the *Review + create** button, and then **Create**:
+4. Configure your logic app as follows, select the *Review + create* button, and then **Create**:
 
    | Field          | Value                                 |
    | -------------- | ------------------------------------- |
