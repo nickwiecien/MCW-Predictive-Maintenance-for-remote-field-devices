@@ -664,7 +664,7 @@ After training the model, we validate it, then register the model in your Azure 
 
 3. In Azure Databricks, select **Workspace**, select **Users**, then select your username.
 
-4. Select your user folder folder, then select the **Anomaly Detection** notebook to open it.
+4. Select your user account name, then select the **Anomaly Detection** notebook to open it.
 
    ![The Anomaly Detection notebook is highlighted.](media/databricks-edit-2.png "Workspace Folder")
 
