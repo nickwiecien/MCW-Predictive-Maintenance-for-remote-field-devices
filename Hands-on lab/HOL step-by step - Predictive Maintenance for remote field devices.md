@@ -338,6 +338,8 @@ Included with this lab is source code that will simulate the connection and tele
     dps-keygen -di:<Device ID> -dk:<Primary Key> -si:<Scope ID>
     ```
 
+    **NOTE:** If you encounter issues here, try opening a new Command Prompt from the start menu and running the command there.
+
     ![The command prompt displays the output message from dps-keygen command.](media/generated-device-connectionstring.png "Generated Device Key")
 
     Make note of the connection string for the device.
