@@ -179,7 +179,7 @@ In this task, you will import the Databricks notebooks into your workspace.
 
 Download the lab artifacts from GitHub.
 
-1. In a web browser, navigate to the [Predictive Maintenance for remote field devices GitHub repo](https://github.com/microsoft/MCW-Predictive-Maintenance-for-remote-field-devices).
+1. In a web browser, navigate to the [Predictive Maintenance for remote field devices GitHub repo](https://github.com/nickwiecien/MCW-Predictive-Maintenance-for-remote-field-devices).
 
 2. On the repo page, select **Clone or download**, then select **Download ZIP**.
 
