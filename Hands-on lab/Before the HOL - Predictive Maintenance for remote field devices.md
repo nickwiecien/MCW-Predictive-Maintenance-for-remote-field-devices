@@ -141,11 +141,11 @@ In this task, you will import the Databricks notebooks into your workspace.
 
 1. Within your Azure Databricks service, select **Workspace**, select **Users**, select the dropdown to the right of your username, then select **Import**.
 
-   ![The Import link is highlighted in the Workspace.](media/databricks-import-link.png 'Workspace')
+   ![The Import link is highlighted in the Workspace.](media/databricks-edit-1.png 'Workspace')
 
 2. Select **URL** next to **Import from**, paste the following into the text box: `https://github.com/nickwiecien/MCW-Predictive-Maintenance-for-remote-field-devices/blob/master/Hands-on%20lab/Resources/Notebooks/Anomaly%20Detection.dbc`, then select **Import**.
 
-   ![The URL has been entered in the import form.](media/databricks-edit-1.png 'Import Notebooks')
+   ![The URL has been entered in the import form.](media/databricks-import.png 'Import Notebooks')
 
 3. After importing, select your username. You will see a new notebook named `Anomaly Detection`.
 
