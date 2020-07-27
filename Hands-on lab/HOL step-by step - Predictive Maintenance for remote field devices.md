@@ -678,9 +678,9 @@ After training the model, we validate it, then register the model in your Azure 
 
 7. Run all of the cells in the notebook and read the instructions and explanations to understand how the model is trained and deployed. You will need to provide values in the `Cmd 60` cell.
 
-8. Copy the scoring web service URL from the last cell's result after executing it. You will use this value to update a setting in your Azure function in the next exercise to let it know where the model is deployed.
+8. In the `Cmd 62` block when you first connect to your Azure Machine Learning Workspace, you will be prompted to login using a device code flow. Here you will need to navigate to the provided link in your browser and enter the code.
 
-> You are not required to run the _Generated-signal-visualizations_ notebook for this lab. This notebook only contains the visualizations for the training data and is available for your reference.
+9. Copy the scoring web service URL from the last cell's result after executing it. You will use this value to update a setting in your Azure function in the next exercise to let it know where the model is deployed.
 
 ## Exercise 7: Create an Azure Function to predict pump failure
 
