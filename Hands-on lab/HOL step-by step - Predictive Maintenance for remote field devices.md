@@ -957,7 +957,7 @@ It is recommended that you never check in secrets, such as connection strings, i
 
    ![The Azure Portal Function Application overview window is displayed with the pumpfunctions application expanded. The functions node is also expanded and the function named PumpFailurePrediction is highlighted.](media/azurefunctiondeployed.png "Functions node is expanded")
 
-## Watch it in action
+## Watch it in action (Optional)
 
 Nice work getting to this point! To observe your predictive maintenance solution in action using all of the deployed Azure services complete the following:
 

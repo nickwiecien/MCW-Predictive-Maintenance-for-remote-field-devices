@@ -145,11 +145,11 @@ In this task, you will import the Databricks notebooks into your workspace.
 
 2. Select **URL** next to **Import from**, paste the following into the text box: `https://github.com/nickwiecien/MCW-Predictive-Maintenance-for-remote-field-devices/blob/master/Hands-on%20lab/Resources/Notebooks/Anomaly%20Detection.dbc`, then select **Import**.
 
-   ![The URL has been entered in the import form.](media/databricks-import.png 'Import Notebooks')
+   ![The URL has been entered in the import form.](media/databricks-edit-1.png 'Import Notebooks')
 
-3. After importing, select your username. You will see a new folder named `Anomaly Detection`, which contains two notebooks.
+3. After importing, select your username. You will see a new notebook named `Anomaly Detection`.
 
-   ![The imported notebooks are displayed.](media/databricks-notebooks.png 'Imported notebooks')
+   ![The imported notebooks are displayed.](media/databricks-edit-2.png 'Imported notebooks')
 
 ### Task 5: Create Azure Machine Learning service workspace
 
