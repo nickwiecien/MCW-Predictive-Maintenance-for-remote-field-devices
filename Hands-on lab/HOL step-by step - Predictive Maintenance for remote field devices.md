@@ -664,9 +664,9 @@ After training the model, we validate it, then register the model in your Azure 
 
 3. In Azure Databricks, select **Workspace**, select **Users**, then select your username.
 
-4. Select the `Anomaly Detection` folder, then select the **Anomaly Detection** notebook to open it.
+4. Select your user folder folder, then select the **Anomaly Detection** notebook to open it.
 
-   ![The Anomaly Detection notebook is highlighted.](media/databricks-anomaly-detection-notebook.png "Workspace Folder")
+   ![The Anomaly Detection notebook is highlighted.](media/databricks-edit-2.png "Workspace Folder")
 
 5. Before you can execute the cells in this notebook, you must first attach your Databricks cluster. Expand the dropdown at the top of the notebook where you see **Detached**. Select your lab cluster to attach it to the notebook. If it is not currently running, you will see an option to start the cluster.
 
