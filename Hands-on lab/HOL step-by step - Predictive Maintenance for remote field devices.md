@@ -896,13 +896,13 @@ It is recommended that you never check in secrets, such as connection strings, i
 
 1. Select <kbd>Ctrl</kbd>+<kbd>F5</kbd> to run the Azure Function code.
 
-2. After some time, you should see log statements indicating that a message has been queued (indicating that Microsoft Flow will send a notification email).
+2. After some time, you should see log statements indicating that a message has been queued (indicating that the Logic App will send a notification email).
 
    ![A sample function log is displayed. A notification of email has been sent is circled.](media/azure-function-output.png "Azure Function Output")
 
 3. Once a message has been placed on the _flownotificationqueue_, it will trigger the notification flow that we created and send an email to the field workers. These emails are sent in 5 minute intervals.
 
-   ![A sample Microsoft Flow pump maintenance message is displayed.](media/flow-email-receipt.png "Notification email received")
+   ![A sample Logic App pump maintenance message is displayed.](media/flow-email-receipt.png "Notification email received")
 
 4. You can now exit the locally running functions by selecting the Terminal window by pressing the <kbd>Ctrl</kbd>+<kbd>c</kbd> keys.
 
