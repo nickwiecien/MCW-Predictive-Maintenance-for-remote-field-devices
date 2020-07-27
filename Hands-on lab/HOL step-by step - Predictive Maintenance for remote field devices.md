@@ -957,6 +957,20 @@ It is recommended that you never check in secrets, such as connection strings, i
 
    ![The Azure Portal Function Application overview window is displayed with the pumpfunctions application expanded. The functions node is also expanded and the function named PumpFailurePrediction is highlighted.](media/azurefunctiondeployed.png "Functions node is expanded")
 
+## Watch it in action
+
+Nice work getting to this point! To observe your predictive maintenance solution in action using all of the deployed Azure services complete the following:
+
+1. Stop execution of your Field Device Simulator by entering **Ctrl+C** or clicking the stop button inside Visual Studio Code.
+
+2. From the Azure Portal, navigate to the storage account which contains your notification table. The name will start with "storageaccount" and was referenced in Exercise 7 - Task 2.
+
+3. From the storage account, select **Storage Explorer (preview)** from the sidebar menu, and then click into the DeviceNotifications table underneath *TABLES*. For each row of data listed, right-click and select **Delete**. This step removes the records of any alerts being sent and will allow another set of notifications to be sent within a 24-hour time period.
+
+4. Restart your Field Device Simulator by entering **F5** inside Visual Studio Code.
+
+5. From IoT Central, you should be able to observe your streaming data and devices performing at high levels soon after restarting the simulator. Note: if your device is performing at a "low" level try cycling the power under the *Commands* tab. Once performance begins to degrade you should expect to receive automated alerts.
+
 ## After the hands-on lab
 
 Duration: 10 minutes
