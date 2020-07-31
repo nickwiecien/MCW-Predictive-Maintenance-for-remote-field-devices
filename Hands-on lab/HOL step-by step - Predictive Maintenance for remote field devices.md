@@ -108,6 +108,7 @@ The diagram above shows the components of IoT Central's architecture that pertai
 5. [Azure Functions Core Tools version 2.x (using NPM or Chocolatey - see readme on GitHub repository)](https://github.com/Azure/azure-functions-core-tools)
 6. [Azure Functions Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 7. An Azure Databricks cluster running Databricks Runtime 5.1 or above.
+8. [Node.JS](https://nodejs.org/dist/v12.18.3/node-v12.18.3-x64.msi)
 
 ## Before the hands-on lab
 
