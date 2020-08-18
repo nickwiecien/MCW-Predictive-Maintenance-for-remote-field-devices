@@ -139,7 +139,7 @@ appears, proceed with installing the packages listed here.
 
    ![VM Desktop](media/vm-desktop.png 'VM Desktop')
 
-## Requirements
+## Required Installations
 
 1. Microsoft Azure subscription (non-Microsoft subscription, must be a pay-as-you subscription).
 2. [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
