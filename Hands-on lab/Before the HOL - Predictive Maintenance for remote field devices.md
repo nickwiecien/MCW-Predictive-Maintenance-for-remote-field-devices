@@ -36,9 +36,6 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 6: Import lab notebooks into Azure Databricks](#task-6-import-lab-notebooks-into-azure-databricks)
     - [Task 7: Create Azure Machine Learning service workspace](#task-7-create-azure-machine-learning-service-workspace)
     - [Task 8: Download the lab files](#task-8-download-the-lab-files)
-  - [(Optional) Using a Windows Virtual Machine in Azure](#optional-using-a-windows-virtual-machine-in-azure)
-    - [Task 1: Provision a virtual machine](#task-1-provision-a-virtual-machine)
-    - [Task 2: Sign in to the VM](#task-2-sign-in-to-vm)
 
 <!-- /TOC -->
 
