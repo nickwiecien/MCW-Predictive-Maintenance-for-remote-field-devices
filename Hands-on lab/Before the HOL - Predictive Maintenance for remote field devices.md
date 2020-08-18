@@ -35,7 +35,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 4: Import lab notebooks into Azure Databricks](#task-4-import-lab-notebooks-into-azure-databricks)
     - [Task 5: Create Azure Machine Learning service workspace](#task-5-create-azure-machine-learning-service-workspace)
     - [Task 6: Download the lab files](#task-6-download-the-lab-files)
-  - [(Optional) Using a Windows Virtual Machine in Azure](#(optional)-using-a-virtual-machine-in-azure)
+  - [(Optional) Using a Windows Virtual Machine in Azure](#optional-using-a-virtual-machine-in-azure)
     - [Task 1: Provision a virtual machine](#task-1-provision-a-virtual-machine)
     - [Task 2: Sign in to the VM](#task-2-sign-in-to-vm)
 
@@ -53,7 +53,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 6. [Azure Functions Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 7. An Azure Databricks cluster running Databricks Runtime 5.1 or above.
 
-> **Note**: If you encounter issues installing the packages listed above due to privilege restrictions on your machine, you can provision a virtual machine running Windows inside Azure and use this VM to carry out work for the Hands-on-Lab. Follow the instructions listed in [(Optional) Using a Windows Virtual Machine in Azure](#(optional)-using-a-virtual-machine-in-azure) to
+> **Note**: If you encounter issues installing the packages listed above due to privilege restrictions on your machine, you can provision a virtual machine running Windows inside Azure and use this VM to carry out work for the Hands-on-Lab. Follow the instructions listed in [(Optional) Using a Windows Virtual Machine in Azure](#optional-using-a-virtual-machine-in-azure) to
 provision and sign in to your VM if desired. 
 
 ## Before the hands-on lab
