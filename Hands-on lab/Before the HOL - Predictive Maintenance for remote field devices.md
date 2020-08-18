@@ -27,14 +27,15 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 <!-- TOC -->
 
 - [Predictive Maintenance for remote field devices before the hands-on lab setup guide](#predictive-maintenance-for-remote-field-devices-before-the-hands-on-lab-setup-guide)
-  - [Requirements](#requirements)
   - [Before the hands-on lab](#before-the-hands-on-lab)
     - [Task 1: Provision a resource group](#task-1-provision-a-resource-group)
-    - [Task 2: Create an Azure Databricks service](#task-2-create-an-azure-databricks-service)
-    - [Task 3: Create Azure Databricks cluster](#task-3-create-azure-databricks-cluster)
-    - [Task 4: Import lab notebooks into Azure Databricks](#task-4-import-lab-notebooks-into-azure-databricks)
-    - [Task 5: Create Azure Machine Learning service workspace](#task-5-create-azure-machine-learning-service-workspace)
-    - [Task 6: Download the lab files](#task-6-download-the-lab-files)
+    - [Task 2: Provision a virtual machine](#task-2-provision-a-virtual-machine)
+    - [Task 3: Sign in to the VM and install required packages](#task-3-sign-in-to-the-vm-and-install-required-packages)
+    - [Task 4: Create an Azure Databricks service](#task-4-create-an-azure-databricks-service)
+    - [Task 5: Create Azure Databricks cluster](#task-5-create-azure-databricks-cluster)
+    - [Task 6: Import lab notebooks into Azure Databricks](#task-6-import-lab-notebooks-into-azure-databricks)
+    - [Task 7: Create Azure Machine Learning service workspace](#task-7-create-azure-machine-learning-service-workspace)
+    - [Task 8: Download the lab files](#task-8-download-the-lab-files)
   - [(Optional) Using a Windows Virtual Machine in Azure](#optional-using-a-windows-virtual-machine-in-azure)
     - [Task 1: Provision a virtual machine](#task-1-provision-a-virtual-machine)
     - [Task 2: Sign in to the VM](#task-2-sign-in-to-vm)
@@ -42,19 +43,6 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 <!-- /TOC -->
 
 # Predictive Maintenance for remote field devices before the hands-on lab setup guide
-
-## Requirements
-
-1. Microsoft Azure subscription (non-Microsoft subscription, must be a pay-as-you subscription).
-2. [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-3. [Visual Studio Code](https://code.visualstudio.com/) version 1.39 or greater
-4. [C# Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-5. [Azure Functions Core Tools version 2.x (using NPM or Chocolatey - see readme on GitHub repository)](https://github.com/Azure/azure-functions-core-tools)
-6. [Azure Functions Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
-7. An Azure Databricks cluster running Databricks Runtime 5.1 or above.
-
-> **Note**: If you encounter issues installing the packages listed above due to privilege restrictions on your machine, you can provision a virtual machine running Windows inside Azure and use this VM to carry out work for the Hands-on-Lab. Follow the instructions listed in [(Optional) Using a Windows Virtual Machine in Azure](#optional-using-a-windows-virtual-machine-in-azure) to
-provision and sign in to your VM if desired. 
 
 ## Before the hands-on lab
 
@@ -86,118 +74,7 @@ In this task, you will create an Azure resource group for the resources used thr
 
 6. On the Summary blade, select **Create** to provision your resource group.
 
-### Task 2: Create an Azure Databricks service
-
-Azure Databricks is used to train and deploy a machine learning model that predicts an oil pump failure, based on incoming telemetry.
-
-1. Navigate to the [Azure portal](https://portal.azure.com).
-
-2. Select **+ Create a resource**, type in "Databricks" in the search field, then select **Azure Databricks** from the results.
-
-   ![Create a resource is highlighted and Azure Databricks is selected.](media/azure-create-databricks-search.png 'SQL Database')
-
-3. Select **Create** in the Azure Databricks details page.
-
-4. Within the **Azure Databricks Service** form, complete the following:
-
-   | Field                          | Value                                      |
-   | ------------------------------ | ------------------------------------------ |
-   | Workspace name                 | _globally unique name_                     |
-   | Subscription                   | _select the appropriate subscription_      |
-   | Resource Group                 | _select use existing, then `Fabrikam_Oil`_ |
-   | Location                       | _select the location nearest to you_       |
-   | Pricing tier                   | _select Standard_                          |
-
-   ![The form fields are completed with the previously described settings.](media/azure-create-databricks.png 'Azure Databricks Service')
-
-5. Select **Review + Create**. On the review screen, select **Create**.
-
-### Task 3: Create Azure Databricks cluster
-
-1. In the [Azure portal](https://portal.azure.com), open your Azure Databricks service you created in the previous task.
-
-2. Select **Launch Workspace**. Azure Databricks will automatically sign you in through its Azure Active Directory integration.
-
-   ![Launch Workspace](media/databricks-launch-workspace.png 'Launch Workspace')
-
-3. Once in the workspace, select **Clusters** in the left-hand menu, then select **+ Create Cluster**.
-
-   ![Create Cluster is highlighted.](media/databricks-clusters.png 'Clusters')
-
-4. In the **New Cluster** form, specify the following configuration options:
-
-   | Field                      | Value                                                                                        |
-   | -------------------------- | -------------------------------------------------------------------------------------------- |
-   | Cluster name               | _enter `lab`_                                                                                |
-   | Cluster Mode               | _select `Standard`_                                                                          |
-   | Pool                       | _select `None`_                                                                              |
-   | Databricks Runtime Version | _select `Runtime 6.4 (Scala 2.11, Spark 2.4.5)`_                                         |
-   | Autopilot Options          | _uncheck `Enable autoscaling` and check `Terminate after...`, with a value of `120` minutes_ |
-   | Worker Type                | _select `Standard_DS3_v2`_                                                                   |
-   | Driver Type                | _select `Same as worker`_                                                                    |
-   | Workers                    | _enter `1`_                                                                                  |
-
-   ![The New Cluster form is displayed with the previously described values.](media/databricks-new-cluster.png 'New Cluster')
-
-5. Select **Create Cluster**.
-
-### Task 4: Import lab notebooks into Azure Databricks
-
-In this task, you will import the Databricks notebooks into your workspace.
-
-1. Within your Azure Databricks service, select **Workspace**, select **Users**, select the dropdown to the right of your username, then select **Import**.
-
-   ![The Import link is highlighted in the Workspace.](media/databricks-edit-1.png 'Workspace')
-
-2. Select **URL** next to **Import from**, paste the following into the text box: `https://github.com/nickwiecien/MCW-Predictive-Maintenance-for-remote-field-devices/blob/master/Hands-on%20lab/Resources/Notebooks/Anomaly%20Detection.dbc`, then select **Import**.
-
-   ![The URL has been entered in the import form.](media/databricks-import.png 'Import Notebooks')
-
-3. After importing, select your username. You will see a new notebook named `Anomaly Detection`.
-
-   ![The imported notebooks are displayed.](media/databricks-edit-2.png 'Imported notebooks')
-
-### Task 5: Create Azure Machine Learning service workspace
-
-1. Navigate to the [Azure portal](https://portal.azure.com).
-
-2. Select **+ Create a resource**, type in "machine learning" in the search field, then select **Machine Learning** from the results.
-
-   ![Create a resource is highlighted and Machine Learning is selected.](media/azure-create-aml-search.png 'SQL Database')
-
-3. Select **Create** in the Azure Databricks details page.
-
-4. Within the **Machine Learning** form, complete the following:
-
-   | Field          | Value                                      |
-   | -------------- | ------------------------------------------ |
-   | Workspace name | _globally unique name_                     |
-   | Subscription   | _select the appropriate subscription_      |
-   | Resource Group | _select use existing, then `Fabrikam_Oil`_ |
-   | Location       | _select the location nearest to you_       |
-   | Workspace edition | _select Basic_ |
-
-   ![The form fields are completed with the previously described settings.](media/azure-create-aml.png 'Machine Learning service workspace')
-
-5. Select **Review + Create**. On the review screen, select **Create**.
-
-### Task 6: Download the lab files
-
-Download the lab artifacts from GitHub.
-
-1. In a web browser, navigate to the [Predictive Maintenance for remote field devices GitHub repo](https://github.com/nickwiecien/MCW-Predictive-Maintenance-for-remote-field-devices).
-
-2. On the repo page, select **Clone or download**, then select **Download ZIP**.
-
-   ![Download .zip containing the repository](media/github-download-repo.png 'Download ZIP')
-
-3. Unzip the contents to your root hard drive (i.e. `C:\`). This will create a folder on your root drive named `MCW-Predictive-Maintenance-for-remote-field-devices-master`.
-
-You should follow all steps provided _before_ performing the Hands-on lab.
-
-## (Optional) Using a Windows Virtual Machine in Azure
-
-### Task 1: Provision a virtual machine
+### Task 2: Provision a virtual machine
 
 1. Inside the [Azure portal](https://portal.azure.com) navigate to the resource group you created above and click the **+ Add** button.
 
@@ -230,7 +107,7 @@ You should follow all steps provided _before_ performing the Hands-on lab.
 
 4. Select **Review + Create**. On the review screen, select **Create**.
 
-### Task 2: Sign in to the VM
+### Task 3: Sign in to the VM and install required packages
 
 1. After your virtual machine deployment completes, click **Go to resource**.
 
@@ -261,6 +138,126 @@ You should follow all steps provided _before_ performing the Hands-on lab.
    ![VM Sign In - 3](media/vm-sign-in-3.png 'VM Sign In - 3')
 
 7. Follow any prompts that show up on screen and *do not* choose to make your machine discoverable by other devices. Once your Windows desktop
-appears, proceed with installing the packages listed under [Requirements](#requirements) at the top of this document.
+appears, proceed with installing the packages listed here.
 
    ![VM Desktop](media/vm-desktop.png 'VM Desktop')
+
+## Requirements
+
+1. Microsoft Azure subscription (non-Microsoft subscription, must be a pay-as-you subscription).
+2. [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+3. [Node.js](https://nodejs.org/en/)
+4. [Visual Studio Code](https://code.visualstudio.com/) version 1.39 or greater
+5. [C# Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+6. [Azure Functions Core Tools version 2.x (using NPM or Chocolatey - see readme on GitHub repository)](https://github.com/Azure/azure-functions-core-tools)
+7. [Azure Functions Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+8. An Azure Databricks cluster running Databricks Runtime 5.1 or above.
+
+### Task 4: Create an Azure Databricks service
+
+Azure Databricks is used to train and deploy a machine learning model that predicts an oil pump failure, based on incoming telemetry.
+
+1. Navigate to the [Azure portal](https://portal.azure.com).
+
+2. Select **+ Create a resource**, type in "Databricks" in the search field, then select **Azure Databricks** from the results.
+
+   ![Create a resource is highlighted and Azure Databricks is selected.](media/azure-create-databricks-search.png 'SQL Database')
+
+3. Select **Create** in the Azure Databricks details page.
+
+4. Within the **Azure Databricks Service** form, complete the following:
+
+   | Field                          | Value                                      |
+   | ------------------------------ | ------------------------------------------ |
+   | Workspace name                 | _globally unique name_                     |
+   | Subscription                   | _select the appropriate subscription_      |
+   | Resource Group                 | _select use existing, then `Fabrikam_Oil`_ |
+   | Location                       | _select the location nearest to you_       |
+   | Pricing tier                   | _select Standard_                          |
+
+   ![The form fields are completed with the previously described settings.](media/azure-create-databricks.png 'Azure Databricks Service')
+
+5. Select **Review + Create**. On the review screen, select **Create**.
+
+### Task 5: Create Azure Databricks cluster
+
+1. In the [Azure portal](https://portal.azure.com), open your Azure Databricks service you created in the previous task.
+
+2. Select **Launch Workspace**. Azure Databricks will automatically sign you in through its Azure Active Directory integration.
+
+   ![Launch Workspace](media/databricks-launch-workspace.png 'Launch Workspace')
+
+3. Once in the workspace, select **Clusters** in the left-hand menu, then select **+ Create Cluster**.
+
+   ![Create Cluster is highlighted.](media/databricks-clusters.png 'Clusters')
+
+4. In the **New Cluster** form, specify the following configuration options:
+
+   | Field                      | Value                                                                                        |
+   | -------------------------- | -------------------------------------------------------------------------------------------- |
+   | Cluster name               | _enter `lab`_                                                                                |
+   | Cluster Mode               | _select `Standard`_                                                                          |
+   | Pool                       | _select `None`_                                                                              |
+   | Databricks Runtime Version | _select `Runtime 6.4 (Scala 2.11, Spark 2.4.5)`_                                         |
+   | Autopilot Options          | _uncheck `Enable autoscaling` and check `Terminate after...`, with a value of `120` minutes_ |
+   | Worker Type                | _select `Standard_DS3_v2`_                                                                   |
+   | Driver Type                | _select `Same as worker`_                                                                    |
+   | Workers                    | _enter `1`_                                                                                  |
+
+   ![The New Cluster form is displayed with the previously described values.](media/databricks-new-cluster.png 'New Cluster')
+
+5. Select **Create Cluster**.
+
+### Task 6: Import lab notebooks into Azure Databricks
+
+In this task, you will import the Databricks notebooks into your workspace.
+
+1. Within your Azure Databricks service, select **Workspace**, select **Users**, select the dropdown to the right of your username, then select **Import**.
+
+   ![The Import link is highlighted in the Workspace.](media/databricks-edit-1.png 'Workspace')
+
+2. Select **URL** next to **Import from**, paste the following into the text box: `https://github.com/nickwiecien/MCW-Predictive-Maintenance-for-remote-field-devices/blob/master/Hands-on%20lab/Resources/Notebooks/Anomaly%20Detection.dbc`, then select **Import**.
+
+   ![The URL has been entered in the import form.](media/databricks-import.png 'Import Notebooks')
+
+3. After importing, select your username. You will see a new notebook named `Anomaly Detection`.
+
+   ![The imported notebooks are displayed.](media/databricks-edit-2.png 'Imported notebooks')
+
+### Task 7: Create Azure Machine Learning service workspace
+
+1. Navigate to the [Azure portal](https://portal.azure.com).
+
+2. Select **+ Create a resource**, type in "machine learning" in the search field, then select **Machine Learning** from the results.
+
+   ![Create a resource is highlighted and Machine Learning is selected.](media/azure-create-aml-search.png 'SQL Database')
+
+3. Select **Create** in the Azure Databricks details page.
+
+4. Within the **Machine Learning** form, complete the following:
+
+   | Field          | Value                                      |
+   | -------------- | ------------------------------------------ |
+   | Workspace name | _globally unique name_                     |
+   | Subscription   | _select the appropriate subscription_      |
+   | Resource Group | _select use existing, then `Fabrikam_Oil`_ |
+   | Location       | _select the location nearest to you_       |
+   | Workspace edition | _select Basic_ |
+
+   ![The form fields are completed with the previously described settings.](media/azure-create-aml.png 'Machine Learning service workspace')
+
+5. Select **Review + Create**. On the review screen, select **Create**.
+
+### Task 8: Download the lab files
+
+Download the lab artifacts from GitHub.
+
+1. In a web browser, navigate to the [Predictive Maintenance for remote field devices GitHub repo](https://github.com/nickwiecien/MCW-Predictive-Maintenance-for-remote-field-devices).
+
+2. On the repo page, select **Clone or download**, then select **Download ZIP**.
+
+   ![Download .zip containing the repository](media/github-download-repo.png 'Download ZIP')
+
+3. Unzip the contents to your root hard drive (i.e. `C:\`). This will create a folder on your root drive named `MCW-Predictive-Maintenance-for-remote-field-devices-master`.
+
+You should follow all steps provided _before_ performing the Hands-on lab.
