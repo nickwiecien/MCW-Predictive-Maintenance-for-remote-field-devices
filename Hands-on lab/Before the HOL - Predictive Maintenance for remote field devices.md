@@ -35,6 +35,9 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 4: Import lab notebooks into Azure Databricks](#task-4-import-lab-notebooks-into-azure-databricks)
     - [Task 5: Create Azure Machine Learning service workspace](#task-5-create-azure-machine-learning-service-workspace)
     - [Task 6: Download the lab files](#task-6-download-the-lab-files)
+  - [(Optional) Using a Windows Virtual Machine in Azure](#(optional)-using-a-virtual-machine-in-azure)
+    - [Task 1: Provision a virtual machine](#task-1-provision-a-virtual-machine)
+    - [Task 2: Sign in to the VM](#task-2-sign-in-to-vm)
 
 <!-- /TOC -->
 
@@ -50,7 +53,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 6. [Azure Functions Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 7. An Azure Databricks cluster running Databricks Runtime 5.1 or above.
 
-> **Note**: If you encounter issues installing the packages listed above due to privilege restrictions on your machine, you can provision a virtual machine running Windows inside Azure and use this VM to carry out work for the Hands-on-Lab. Follow the instructions listed in ... to
+> **Note**: If you encounter issues installing the packages listed above due to privilege restrictions on your machine, you can provision a virtual machine running Windows inside Azure and use this VM to carry out work for the Hands-on-Lab. Follow the instructions listed in [(Optional) Using a Windows Virtual Machine in Azure](#(optional)-using-a-virtual-machine-in-azure) to
 provision and sign in to your VM if desired. 
 
 ## Before the hands-on lab
@@ -227,35 +230,37 @@ You should follow all steps provided _before_ performing the Hands-on lab.
 
 4. Select **Review + Create**. On the review screen, select **Create**.
 
-5. After your virtual machine deployment completes, click **Go to resource**.
+### Task 2: Sign in to the VM
+
+1. After your virtual machine deployment completes, click **Go to resource**.
 
    ![Go to resource](media/vm-go-to-resource.png 'Go to resource')
 
-6. From the virtual machine overview tab, click **Connect** and select the **RDP** option.
+2. From the virtual machine overview tab, click **Connect** and select the **RDP** option.
 
    ![Select RDP](media/vm-select-rdp.png 'Select RDP')
 
-7. From the connection screen click **Download RDP File**, and then open the downloaded file.
+3. From the connection screen click **Download RDP File**, and then open the downloaded file.
 
    ![Download RDP File](media/vm-download-rdp.png 'Download RDP File')
 
    ![Open RDP File](media/vm-open-rdp.png 'Open RDP File')
 
-8. If you receive a Remote Desktop Connection warning at this stage, click **Connect** to proceed.
+4. If you receive a Remote Desktop Connection warning at this stage, click **Connect** to proceed.
 
    ![RDP Connect](media/vm-rdp-connect.png 'RDP Connect')
 
-9. When prompted to sign into your virtual machine click **More Choices**, followed by **Use a different account**, then enter the username and password credentials you entered when you created your VM. 
+5. When prompted to sign into your virtual machine click **More Choices**, followed by **Use a different account**, then enter the username and password credentials you entered when you created your VM. 
 
    ![VM Sign In - 1](media/vm-sign-in-1.png 'VM Sign In - 1')
 
    ![VM Sign In - 2](media/vm-sign-in-2.png 'VM Sign In - 2')
 
-10. If you receive a Remote Desktop Connection warning at this stage, click **Yes** to proceed again.
+6. If you receive a Remote Desktop Connection warning at this stage, click **Yes** to proceed again.
 
    ![VM Sign In - 3](media/vm-sign-in-3.png 'VM Sign In - 3')
 
-11. Follow any prompts that show up on screen and *do not* choose to make your machine discoverable by other devices. Once your Windows desktop
+7. Follow any prompts that show up on screen and *do not* choose to make your machine discoverable by other devices. Once your Windows desktop
 appears, proceed with installing the packages listed under requirements at the top of this document.
 
    ![VM Desktop](media/vm-desktop.png 'VM Desktop')
