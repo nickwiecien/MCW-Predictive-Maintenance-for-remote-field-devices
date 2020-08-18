@@ -261,6 +261,6 @@ You should follow all steps provided _before_ performing the Hands-on lab.
    ![VM Sign In - 3](media/vm-sign-in-3.png 'VM Sign In - 3')
 
 7. Follow any prompts that show up on screen and *do not* choose to make your machine discoverable by other devices. Once your Windows desktop
-appears, proceed with installing the packages listed under requirements at the top of this document.
+appears, proceed with installing the packages listed under [Requirements](#requirements) at the top of this document.
 
    ![VM Desktop](media/vm-desktop.png 'VM Desktop')
