@@ -50,6 +50,9 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 6. [Azure Functions Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 7. An Azure Databricks cluster running Databricks Runtime 5.1 or above.
 
+> **Note**: If you encounter issues installing the packages listed above due to privilege restrictions on your machine, you can provision a virtual machine running Windows inside Azure and use this VM to carry out work for the Hands-on-Lab. Follow the instructions listed in ... to
+provision and sign in to your VM if desired. 
+
 ## Before the hands-on lab
 
 Duration: 60 minutes
@@ -188,3 +191,71 @@ Download the lab artifacts from GitHub.
 3. Unzip the contents to your root hard drive (i.e. `C:\`). This will create a folder on your root drive named `MCW-Predictive-Maintenance-for-remote-field-devices-master`.
 
 You should follow all steps provided _before_ performing the Hands-on lab.
+
+## (Optional) Using a Windows Virtual Machine in Azure
+
+### Task 1: Provision a virtual machine
+
+1. Inside the [Azure portal](https://portal.azure.com) navigate to the resource group you created above and click the **+ Add** button.
+
+   ![Add Resource](media/vm-add-resource.png 'Add Resource')
+
+2. From the resource list, select **Compute** from the sidebar menu and then select **Virtual Machine**.
+
+   ![Select Resource](media/vm-select-resource.png 'Select Resource')
+
+3. Within the **Create a virtual machine** form, complete the following:
+
+| Field          | Value                                      |
+   | -------------- | ------------------------------------------ |
+   | Subscription   | _select the appropriate subscription_      |
+   | Resource Group | _select use existing, then `Fabrikam_Oil`_ |
+   | Virtual machine name | _select a unique name_                     |
+   | Location       | _select the location nearest to you_       |
+   | Availability options | _select `No infrastructure redundancy required`_ |
+   | Image | _select `Windows 10 Pro, Version 1809 - Gen1`_ |
+   | Azure Spot Instance | _select `No`_ |
+   | Size | _select `Standard_D2s_v3 - 2 vcpus, 8 GiB memory`_ |
+   | Administrator account | _enter a unique username and password combination_ |
+   | Public inbound ports | _select `Allow selected ports`_ |
+   | Select inbound ports | _select `RDP (3389)`_ |
+   | Licensing | _check `I confirm I have an eligible Windows 10 license...`_ |
+
+   ![Virtual Machine Creation - 1](media/vm-creation-1.png 'Virtual Machine Creation - 1')
+
+   ![Virtual Machine Creation - 2](media/vm-creation-2.png 'Virtual Machine Creation - 2')
+
+4. Select **Review + Create**. On the review screen, select **Create**.
+
+5. After your virtual machine deployment completes, click **Go to resource**.
+
+   ![Go to resource](media/vm-go-to-resource.png 'Go to resource')
+
+6. From the virtual machine overview tab, click **Connect** and select the **RDP** option.
+
+   ![Select RDP](media/vm-select-rdp.png 'Select RDP')
+
+7. From the connection screen click **Download RDP File**, and then open the downloaded file.
+
+   ![Download RDP File](media/vm-download-rdp.png 'Download RDP File')
+
+   ![Open RDP File](media/vm-open-rdp.png 'Open RDP File')
+
+8. If you receive a Remote Desktop Connection warning at this stage, click **Connect** to proceed.
+
+   ![RDP Connect](media/vm-rdp-connect.png 'RDP Connect')
+
+9. When prompted to sign into your virtual machine click **More Choices**, followed by **Use a different account**, then enter the username and password credentials you entered when you created your VM. 
+
+   ![VM Sign In - 1](media/vm-sign-in-1.png 'VM Sign In - 1')
+
+   ![VM Sign In - 2](media/vm-sign-in-2.png 'VM Sign In - 2')
+
+10. If you receive a Remote Desktop Connection warning at this stage, click **Yes** to proceed again.
+
+   ![VM Sign In - 3](media/vm-sign-in-3.png 'VM Sign In - 3')
+
+11. Follow any prompts that show up on screen and *do not* choose to make your machine discoverable by other devices. Once your Windows desktop
+appears, proceed with installing the packages listed under requirements at the top of this document.
+
+   ![VM Desktop](media/vm-desktop.png 'VM Desktop')
