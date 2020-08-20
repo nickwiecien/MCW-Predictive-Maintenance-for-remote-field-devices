@@ -451,13 +451,13 @@ The Event Hub we will be creating will act as a collector for data coming into I
 
 ### Task 2: Configure continuous data export from IoT Central
 
-1. Return to the IoT Central application, from the left-hand menu, select **Data Export**.
+1. Return to the IoT Central application, from the left-hand menu, select **Data Export (legacy)**.
 
-   ![The dashboard is displayed and the left-hand menu has the Data Export link circled.](media/data-export-menu.png "Data Export Menu")
+   ![The dashboard is displayed and the left-hand menu has the Data Export link circled.](media/iot-central-data-export-legacy.png "Data Export Menu")
 
 2. From the _Data Export_ screen, select the **+ New** button from the top menu, and select **Azure Event Hubs**.
 
-   ![The new Data Export options are displayed. The Azure Event Hubs option is circled.](media/ce-eventhubs-menu.png "New Event Hubs export")
+   ![The new Data Export options are displayed. The Azure Event Hubs option is circled.](media/iot-central-new-event-hub.png "New Event Hubs export")
 
 3. IoT Central will automatically retrieve Event Hubs namespaces and Event Hubs from the connected Azure Account. Configure the data export as follows and select the **Save** button:
 
@@ -467,11 +467,11 @@ The Event Hub we will be creating will act as a collector for data coming into I
    | Enabled              | On                                               |
    | Event Hubs Namespace | _select the namespace you created in Exercise 6_ |
    | Event Hub            | iot-central-feed                                 |
-   | Measurements         | On                                               |
+   | Telemetry         | On                                               |
    | Devices              | Off                                              |
    | Device Templates     | Off                                              |
 
-   ![The data export configuration fields are displayed.  The save button is circled.](media/create-data-export-form.png "Configure Data Export")
+   ![The data export configuration fields are displayed.  The save button is circled.](media/iot-central-create-data-export.png "Configure Data Export")
 
    > **Note**: If you cannot browse your subscription for the Event Hubs namespace due to using a trial app instead of pay-as-you-go, perform the following steps:
 
