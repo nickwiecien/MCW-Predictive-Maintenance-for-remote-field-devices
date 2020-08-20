@@ -45,14 +45,12 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 3: Run the application](#task-3-run-the-application)
     - [Task 4: Interpret telemetry data](#task-4-interpret-telemetry-data)
     - [Task 5: Restart a failing pump remotely](#task-5-restart-a-failing-pump-remotely)
-  - [Exercise 3: Creating a device set](#exercise-3-creating-a-device-set)
-    - [Task 1: Create a device set using a filter](#task-1-create-a-device-set-using-a-filter)
-  - [Exercise 4: Create an Event Hub and continuously export data from IoT Central](#exercise-4-create-an-event-hub-and-continuously-export-data-from-iot-central)
+  - [Exercise 3: Create an Event Hub and continuously export data from IoT Central](#exercise-3-create-an-event-hub-and-continuously-export-data-from-iot-central)
     - [Task 1: Create an Event Hub](#task-1-create-an-event-hub)
     - [Task 2: Configure continuous data export from IoT Central](#task-2-configure-continuous-data-export-from-iot-central)
-  - [Exercise 5: Use Azure Databricks and Azure Machine Learning service to train and deploy predictive model](#exercise-5-use-azure-databricks-and-azure-machine-learning-service-to-train-and-deploy-predictive-model)
+  - [Exercise 4: Use Azure Databricks and Azure Machine Learning service to train and deploy predictive model](#exercise-4-use-azure-databricks-and-azure-machine-learning-service-to-train-and-deploy-predictive-model)
     - [Task 1: Run the Anomaly Detection notebook](#task-1-run-the-anomaly-detection-notebook)
-  - [Exercise 6: Create an Azure Function to predict pump failure](#exercise-6-create-an-azure-function-to-predict-pump-failure)
+  - [Exercise 5: Create an Azure Function to predict pump failure](#exercise-5-create-an-azure-function-to-predict-pump-failure)
     - [Task 1: Create an Azure Function Application](#task-1-create-an-azure-function-application)
     - [Task 2: Create a notification table in Azure Storage](#task-2-create-a-notification-table-in-azure-storage)
     - [Task 3: Create a notification queue in Azure Storage](#task-3-create-a-notification-queue-in-azure-storage)
@@ -394,7 +392,7 @@ After observing the failure of two of the rod pumps, you are able cycle the powe
 
     ![Device DEVICE001 is in a Power State Off with no telemetry coming in.](media/iot-central-device-restoration.png "Rod Pump DEVICE001 Measurements")
 
-## Exercise 4: Create an Event Hub and continuously export data from IoT Central
+## Exercise 3: Create an Event Hub and continuously export data from IoT Central
 
 Duration: 15 minutes
 
@@ -493,7 +491,7 @@ The Event Hub we will be creating will act as a collector for data coming into I
 
    ![The Data Export screen displays the status of Event Hub creation. The status of running is displayed.](media/ce-eventhubfeed-running.png "Event Hub Export Running")
 
-## Exercise 6: Use Azure Databricks and Azure Machine Learning service to train and deploy predictive model
+## Exercise 4: Use Azure Databricks and Azure Machine Learning service to train and deploy predictive model
 
 Duration: 15 minutes
 
@@ -527,7 +525,7 @@ After training the model, we validate it, then register the model in your Azure 
 
 9. Copy the scoring web service URL from the last cell's result after executing it. You will use this value to update a setting in your Azure function in the next exercise to let it know where the model is deployed.
 
-## Exercise 7: Create an Azure Function to predict pump failure
+## Exercise 5: Create an Azure Function to predict pump failure
 
 Duration: 45 minutes
 
