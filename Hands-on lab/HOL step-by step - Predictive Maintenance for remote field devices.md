@@ -47,17 +47,12 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 5: Restart a failing pump remotely](#task-5-restart-a-failing-pump-remotely)
   - [Exercise 3: Creating a device set](#exercise-3-creating-a-device-set)
     - [Task 1: Create a device set using a filter](#task-1-create-a-device-set-using-a-filter)
-  - [Exercise 4: Creating a useful dashboard](#exercise-4-creating-a-useful-dashboard)
-    - [Task 1: Clearing out the default dashboard](#task-1-clearing-out-the-default-dashboard)
-    - [Task 2: Add your company logo](#task-2-add-your-company-logo)
-    - [Task 3: Add a list of Texas Rod Pumps](#task-3-add-a-list-of-texas-rod-pumps)
-    - [Task 4: Add a map displaying the power state of DEVICE001](#task-4-add-a-map-displaying-the-power-state-of-device001)
-  - [Exercise 5: Create an Event Hub and continuously export data from IoT Central](#exercise-5-create-an-event-hub-and-continuously-export-data-from-iot-central)
+  - [Exercise 4: Create an Event Hub and continuously export data from IoT Central](#exercise-4-create-an-event-hub-and-continuously-export-data-from-iot-central)
     - [Task 1: Create an Event Hub](#task-1-create-an-event-hub)
     - [Task 2: Configure continuous data export from IoT Central](#task-2-configure-continuous-data-export-from-iot-central)
-  - [Exercise 6: Use Azure Databricks and Azure Machine Learning service to train and deploy predictive model](#exercise-6-use-azure-databricks-and-azure-machine-learning-service-to-train-and-deploy-predictive-model)
+  - [Exercise 5: Use Azure Databricks and Azure Machine Learning service to train and deploy predictive model](#exercise-5-use-azure-databricks-and-azure-machine-learning-service-to-train-and-deploy-predictive-model)
     - [Task 1: Run the Anomaly Detection notebook](#task-1-run-the-anomaly-detection-notebook)
-  - [Exercise 7: Create an Azure Function to predict pump failure](#exercise-7-create-an-azure-function-to-predict-pump-failure)
+  - [Exercise 6: Create an Azure Function to predict pump failure](#exercise-6-create-an-azure-function-to-predict-pump-failure)
     - [Task 1: Create an Azure Function Application](#task-1-create-an-azure-function-application)
     - [Task 2: Create a notification table in Azure Storage](#task-2-create-a-notification-table-in-azure-storage)
     - [Task 3: Create a notification queue in Azure Storage](#task-3-create-a-notification-queue-in-azure-storage)
@@ -399,75 +394,7 @@ After observing the failure of two of the rod pumps, you are able cycle the powe
 
     ![Device DEVICE001 is in a Power State Off with no telemetry coming in.](media/iot-central-device-restoration.png "Rod Pump DEVICE001 Measurements")
 
-## Exercise 4: Creating a useful dashboard
-
-Duration: 30 minutes
-
-One of the main features of IoT Central is the ability to visualize the health of your IoT system at a glance. Creating a customized dashboard that best fits your business is instrumental in improving business processes. In this exercise, we will go over adding a main dashboard that will be displayed upon entry to the IoT Central application.
-
-### Task 1: Clearing out the default dashboard
-
-1. In the left-hand menu, select the _Dashboard_ item. Then, in the upper right corner of the dashboard - select the _Edit_ button.
-
-    ![The dashboard editing options are presented to the user.](media/dashboard-edit-button.png "Edit Dashboard")
-
-2. Select the _X_ on each tile that you do not wish to see on the dashboard to remove them. The _X_ will display when you hover over the tile.
-
-    ![The create device template card is displayed. The close button in the upper right-hand corner is selected.](media/delete-dashboard-card.png "Delete Dashboard Tile")
-
-### Task 2: Add your company logo
-
-1. Remaining in the edit mode of the dashboard, select _Image_ from the _Library_ menu.
-
-    ![The Library menu items are displayed. The Image menu item is circled.](media/dashboard-library-image.png "Dashboard library Image")
-
-2. Configure the logo with the following file _C:\MCW-Predictive-Maintenance-for-remote-field-devices-master\Hands-on lab\media\fabrikam-logo.png_.
-
-    ![The company logo configuration options are displayed.](media/configure-dashboard-logo.png "Configure Logo Image")
-
-3. Resize the logo on the dashboard using the handle on the lower right of the logo tile.
-
-    ![The company logo is displayed and option to resize tool is selected.](media/logo-resize.png "Resize the Logo")
-
-### Task 3: Add a list of Texas Rod Pumps
-
-In the previous exercise, we created a device set that contains the devices located in Texas. We will leverage this device set to display this filtered information.
-
-1. Remaining in the edit dashboard mode, select _Device Set Grid_ from the _Library_ menu.
-
-2. Configure the device list by selecting the _Texas Rod Pumps_ Device Set and assigning it the title of _Texas Rod Pumps_.
-
-3. Add columns by selecting the _Add/Remove_, we will add _Device ID_ and _IP Address_.
-
-4. Select the _Save_ button to add the tile to the dashboard.
-
-    ![The panel for device list configuration is displayed.](media/device-list-configure1.png "Configure list")
-
-    ![The dashboard shows company logo and the device IDs and IP addresses.](media/dashboard-inprogress-1.png "Dashboard in progress")
-
-### Task 4: Add a map displaying the power state of DEVICE001
-
-It is beneficial to see the location and power state of certain critical Texas rod pumps. We will add a map that will display the location and current power state of DEVICE001.
-
-1. Select _Map_ from the _Library_ menu, configure the map as follows, and select _Save_:
-
-    | Field             | Value                       |
-    | ----------------- | --------------------------- |
-    | Device Template   | Rod Pump (1.0.0)            |
-    | Device Instance   | Rod Pump - DEVICE001        |
-    | Title             | Rod Pump - DEVICE001 Status |
-    | Location          | Rod Pump Location           |
-    | State Measurement | Power State                 |
-
-    ![The map configurations are displayed.](media/dashboard-configure-map.png "Configure Map")
-
-    ![The Rod Pump location is displayed in a map. A list of devices and their IP addresses are listed on the right-hand side.](media/completed-dashboard.png "Completed Dashboard")
-
-2. Select the _Done_ button in the upper right corner of the Dashboard to finish editing.
-
-    ![The Rod Pump location is displayed in a map. A list of devices and their IP addresses are listed on the right-hand side. The done button is circled.](media/done-dashboard-editing.png "Done dashboard editing")
-
-## Exercise 5: Create an Event Hub and continuously export data from IoT Central
+## Exercise 4: Create an Event Hub and continuously export data from IoT Central
 
 Duration: 15 minutes
 
