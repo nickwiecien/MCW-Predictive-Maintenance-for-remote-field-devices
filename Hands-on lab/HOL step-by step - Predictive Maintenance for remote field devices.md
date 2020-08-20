@@ -303,7 +303,7 @@ Included with this lab is source code that will simulate the connection and tele
 
 1. In IoT Central, select _Devices_ from the left-hand menu. Then, from the devices list, select the link for _Rod Pump - DEVICE001_, and select the _Connect_ button located in the upper right corner of the device's page. Make note of the Scope ID, Device ID, as well as the primary and secondary key values.
 
-    ![The device connection key information is displayed.](media/device-connection-info.png "Device Connection Info")
+    ![The device connection key information is displayed.](media/iot-central-connect-device.png "Device Connection Info")
 
 2. Utilizing one of the keys from the values you recorded in #5, we will be generating a connection string to be used within the source code running on the device. We will generate the connection string using command line tooling. Ensure you have Node v.8+ installed, open a command prompt, and execute the following to globally install the key generator utility:
 
