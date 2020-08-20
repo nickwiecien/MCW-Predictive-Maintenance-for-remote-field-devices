@@ -235,6 +235,10 @@ The telemetry being reported by the Fabrikam rod pumps are as follows, we will b
 
 11. Operators and field workers will want to be able to turn on and off the pumps remotely. In order to do this, we will define a toggle command. Add a capability and select _Command_. Leave the _Command_ type set to _Synchronous_ and update the _Description_ field, then click _Save_.
 
+    | Display Name    | Name     | Capability Type   | Command Type | Description |
+    | --------------- | -------------- | ------- | ---------- | ---------- |
+    | Toggle Motor Power      | MotorPower       | Command     | Synchronous          | Toggle the motor power on and off.        |
+
     ![The screen displays the state configuration options.](media/iot-central-command-definition.png "Power State")
 
 12. Now we can add some customization to our interface taking into account expected data ranges, and defining specific colors to represent each type of telemetry data received from the devices. For Pump Rate, Time Pump On, Motor Power, Motor Speed, and Casing Friction update the Min/Max values and decimal places according to the table below, and assign a unique color for each field. Then click _Save_.
