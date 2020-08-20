@@ -225,21 +225,19 @@ The telemetry being reported by the Fabrikam rod pumps are as follows, we will b
 
 10. In the device template, properties are metadata associated with the equipment. For our template, we will expect a property for Serial Number IP Address, and the geographic location of the pump. Add new capabilities for each and update the _Schema_ and _Description_ fields. Once complete, click _Save_.
 
-    ![The screen displays the configure device properties.](media/iot-central-property-definitions.png "Device Properties Form")
-
     | Display Name    | Name     | Capability Type   | Semantic Type | Schema | Description |
     | --------------- | -------------- | ------- | ---------- | ---------- | -------------- |
     | Serial Number       | SerialNumber       | Property     | None          | String        | The Serial Number of the rod pump   |
     | IP Address    | IPAddress     | Property | None          |  String          | The IP address of the rod pump  |
     | Pump Location     | Location   | Property      | Location          | Geopoint         | The geo. location of the rod pump  |
 
+    ![The screen displays the configure device properties.](media/iot-central-property-definitions.png "Device Properties Form")
+
 11. Operators and field workers will want to be able to turn on and off the pumps remotely. In order to do this, we will define a toggle command. Add a capability and select _Command_. Leave the _Command_ type set to _Synchronous_ and update the _Description_ field, then click _Save_.
 
     ![The screen displays the state configuration options.](media/iot-central-command-definition.png "Power State")
 
 12. Now we can add some customization to our interface taking into account expected data ranges, and defining specific colors to represent each type of telemetry data received from the devices. For Pump Rate, Time Pump On, Motor Power, Motor Speed, and Casing Friction update the Min/Max values and decimal places according to the table below, and assign a unique color for each field. Then click _Save_.
-
-    ![The screen displays the configuration menu for the Rod Pump 1. The Properties menu item is selected and the Device Property menu item link is circled.](media/iot-central-customize.png "Telemetry Customize")
 
     | Display Name  | Min Value   | Max Value | Decimal Places                       |
     | ------------- | ------------ | --------- | --------------------------------- |
@@ -248,6 +246,8 @@ The telemetry being reported by the Fabrikam rod pumps are as follows, we will b
     | Motor Power | 0     | 90  | 2 |
     | Motor Speed    | 0    | 300      | 0    |
     | Casing Friction | 0     | 1600  | 2 |
+
+    ![The screen displays the configuration menu for the Rod Pump 1. The Properties menu item is selected and the Device Property menu item link is circled.](media/iot-central-customize.png "Telemetry Customize")
 
 13. Now we want to create a standard view of our streaming data from each device. Select _Views_ from the menu and click _Visualizing the device_.
 
@@ -273,7 +273,7 @@ Under the hood, Azure IoT Central uses the [Azure IoT Hub Device Provisioning Se
 
 1. In the left-hand menu of your IoT Central application, select _Devices_.
 
-2. Select the _Rod Pump_ template. This will now show the list of existing devices which at this time includes only the simulated device.
+2. Select the _Rod Pump_ template. This will now show the list of existing devices which at this time contains no devices.
 
 3. Select the _+ New_ button to add a new device.
 
