@@ -258,7 +258,11 @@ The telemetry being reported by the Fabrikam rod pumps are as follows, we will b
 
     ![The screen shows the configure command options. The save button is circled.](media/iot-central-view-tile-definition.png "Configure Command")
 
-16. Review the device template that you have created before publishing. Once you have confirmed you have added all telemetry fields, properties, and commands you are ready to publish your template. You can do this by clicking the _Publish_ option at the top of the page, and then click _Publish_ in the pop-up window. Now we can use this template for provisioning devices:
+16. Add one last tile to indicate pump location on a map. Under Properties select _Location_, then click _Add tile_. When completed you should see a panel of tiles similar to what is shown below.
+
+    ![The screen shows the configure command options. The save button is circled.](media/iot-central-full-view.png "Configure Command")
+
+17. Review the device template that you have created before publishing. Once you have confirmed you have added all telemetry fields, properties, and commands you are ready to publish your template. You can do this by clicking the _Publish_ option at the top of the page, and then click _Publish_ in the pop-up window. Now we can use this template for provisioning devices:
 
     ![The screen shows the Dashboard menu item is selected and circled. The Library menu has the Line Chart menu item selected.](media/iot-central-publish.png "Line Chart")
 
