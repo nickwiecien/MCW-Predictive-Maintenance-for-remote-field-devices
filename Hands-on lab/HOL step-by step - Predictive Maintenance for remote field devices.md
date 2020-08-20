@@ -181,7 +181,7 @@ The telemetry being reported by the Fabrikam rod pumps are as follows, we will b
 
 1. Once the application has been provisioned, we need to define the type of equipment we are using, and the data associated with the equipment. In order to do this, we must define a Device Template. Select either the Device Templates button, or the Device Templates menu item from the left-hand menu.
 
-    ![The screen displays the options available for a dashboard. Red boxes indicate Create Device Templates.](media/create-device-templates.png "Device Templates")
+    ![The screen displays the options available for a dashboard. Red boxes indicate Create Device Templates.](media/iot-central-device-templates.png "Device Templates")
 
 2. Select IoT device under Create a custom device template to define our own type of hardware.
 
