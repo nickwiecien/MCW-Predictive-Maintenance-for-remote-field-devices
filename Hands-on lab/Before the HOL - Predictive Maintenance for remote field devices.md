@@ -217,6 +217,8 @@ In this task, you will import the Databricks notebooks into your workspace.
 
    ![The URL has been entered in the import form.](media/databricks-import.png 'Import Notebooks')
 
+> **Note:** If you encounter an issue importing the notebook via URL, you can manually upload the file instead. Complete [Task 8](#task-8-download-the-lab-files), and then manually upload the notebook at `C:\MCW-Predictive-Maintenance-for-remote-field-devices\Hands-on lab\Resources\Notebooks\Anomaly Detection.dbc` or the equivalent path on your machine. 
+
 3. After importing, select your username. You will see a new notebook named `Anomaly Detection`.
 
    ![The imported notebooks are displayed.](media/databricks-edit-2.png 'Imported notebooks')
