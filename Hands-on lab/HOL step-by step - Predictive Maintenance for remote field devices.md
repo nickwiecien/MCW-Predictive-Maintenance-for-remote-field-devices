@@ -533,7 +533,7 @@ After training the model, we validate it, then register the model in your Azure 
 
 8. In the `Cmd 62` block when you first connect to your Azure Machine Learning Workspace, you will be prompted to login using a device code flow. Here you will need to navigate to the provided link in your browser and enter the code.
 
-9. Copy the scoring web service URL from the second-to-last cell's result after executing it (`print(webservice.scoring_uri)`). You will use this value to update a setting in your Azure function in the next exercise to let it know where the model is deployed.
+9. Copy the scoring web service URL from the second-to-last cell's result after executing it (contains the command: `print(webservice.scoring_uri)`). You will use this value to update a setting in your Azure function in the next exercise to let it know where the model is deployed.
 
 ## Exercise 5: Create an Azure Function to predict pump failure
 
