@@ -252,7 +252,7 @@ The telemetry being reported by the Fabrikam rod pumps are as follows, we will b
 
     ![The screen displays the configure device properties.](media/iot-central-visualizing-the-device.png "Device Properties Form")
 
-14. Rename the view to _MainView_ and add a tile for each type of telemetry data (Casing Friction, Motor Power, Motor Speed, Time Pump On, and Pump Rate).
+14. Rename the view to _MainView_ and add a tile for each type of telemetry data (Casing Friction, Motor Power, Motor Speed, Time Pump On, and Pump Rate) by checking each field (one at a time) within the _Telemetry_ panel and selecting _Add tile_.
 
     ![The screen displays the configuration menu for the Rod Pump 1. The Commands menu item is selected and the New Command link is circled.](media/iot-central-main-view.png "Add Command")
 
