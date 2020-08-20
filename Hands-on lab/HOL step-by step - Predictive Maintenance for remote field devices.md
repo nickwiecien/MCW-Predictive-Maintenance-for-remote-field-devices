@@ -95,7 +95,7 @@ The diagram above shows the components of IoT Central's architecture that pertai
 ## Requirements
 
 1. Microsoft Azure subscription (non-Microsoft subscription, must be a pay-as-you subscription).
-2. [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+2. [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 3. [Visual Studio Code](https://code.visualstudio.com/) version 1.39 or greater
 4. [C# Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 5. [Azure Functions Core Tools version 2.x (using NPM or Chocolatey - see readme on GitHub repository)](https://github.com/Azure/azure-functions-core-tools)
@@ -176,7 +176,7 @@ The telemetry being reported by the Fabrikam rod pumps are as follows, we will b
 
     ![The screen displays the options available for a dashboard. Red boxes indicate Create Device Templates.](media/iot-central-device-templates.png "Device Templates")
 
-2. Select IoT device under Create a custom device template to define our own type of hardware.
+2. Select IoT device under Create a custom device template to define our own type of hardware, then click _Next: Customize_.
 
     ![The screen shows the Device Template menu item is selected. The device template tile option for the Custom template is circled.](media/iot-central-iot-device-template.png "Custom Template")
 
@@ -254,15 +254,15 @@ The telemetry being reported by the Fabrikam rod pumps are as follows, we will b
 
     ![The screen displays the configuration menu for the Rod Pump 1. The Commands menu item is selected and the New Command link is circled.](media/iot-central-main-view.png "Add Command")
 
-15. Within each added tile, select a _Display range_ of _Past 30 minutes_, then click _Update_.
+15. Within each added tile, click the gear icon to open an editable configuration menu. From here, select a _Display range_ of _Past 30 minutes_, then click _Update_.
 
     ![The screen shows the configure command options. The save button is circled.](media/iot-central-view-tile-definition.png "Configure Command")
 
-16. Add one last tile to indicate pump location on a map. Under Properties select _Location_, then click _Add tile_. When completed you should see a panel of tiles similar to what is shown below.
+16. Add one last tile to indicate pump location on a map. Under Properties select _Location_, then click _Add tile_. When completed you should see a panel of tiles similar to what is shown below. Click _Save_ to save your created view.
 
     ![The screen shows the configure command options. The save button is circled.](media/iot-central-full-view.png "Configure Command")
 
-17. Review the device template that you have created before publishing. Once you have confirmed you have added all telemetry fields, properties, and commands you are ready to publish your template. You can do this by clicking the _Publish_ option at the top of the page, and then click _Publish_ in the pop-up window. Now we can use this template for provisioning devices:
+17. Review the device template that you have created before publishing. Once you have confirmed you have added all telemetry fields, properties, and commands you are ready to publish your template. You can do this by clicking the _Publish_ option at the top of the page. Then, click _Publish_ in the modal dialog window. Now we can use the _Rod Pump_ template for provisioning devices:
 
     ![The screen shows the Dashboard menu item is selected and circled. The Library menu has the Line Chart menu item selected.](media/iot-central-publish.png "Line Chart")
 
@@ -274,7 +274,7 @@ Under the hood, Azure IoT Central uses the [Azure IoT Hub Device Provisioning Se
 
 1. In the left-hand menu of your IoT Central application, select _Devices_.
 
-2. Select the _Rod Pump_ template. This will now show the list of existing devices which at this time contains no devices.
+2. Select the _Rod Pump_ template listed under All devices. This will now show the list of existing devices which at this time contains no devices.
 
 3. Select the _+ New_ button to add a new device.
 
@@ -291,6 +291,8 @@ Under the hood, Azure IoT Central uses the [Azure IoT Hub Device Provisioning Se
     | DEVICE003 | Rod Pump - DEVICE003 |
 
 5. Return to the Devices list by selecting _Devices_ in the left-hand menu. Note how all three real devices have the provisioning status of _Registered_.
+
+    ![The create new device manager configuration fields are displayed.](media/iot-central-registered-devices.png "Real Device ID and Name")
 
 ## Exercise 2: Run the Rod Pump Simulator
 
@@ -364,13 +366,19 @@ Included with this lab is source code that will simulate the connection and tele
 
 ### Task 4: Interpret telemetry data
 
-DEVICE001 is the rod pump that will gradually fail. Upon running the simulator for approximately 10 minutes (or 1100 messages), you can take a look at the Motor Power chart in the Device Dashboard, or on the measurements tab and watch the power consumption decrease.
+DEVICE001 is the rod pump that will gradually fail. Upon running the simulator for approximately 10 minutes (or 1100 messages), you can take a look at the Motor Power chart in the Device Dashboard, or on the Analytics tab and watch the power consumption decrease.
 
 1. In IoT Central, select the _Device groups_ menu item, then select the link for _Rod Pump - All devices_ in the device groups list. Telemetry from these devices can be analyzed together under the _Analytics_ tab.
 
     ![Motor power telemetry graphing options are displayed. The graph shows a line with a drop off.](media/iot-central-device-groups.png "Focus Telemetry Chart to Motor Power")
 
-2. Select the _Analytics_ tab, then choose the _Rod Pump – All devices_ device group. Under Telemetry select _Motor Power_, and split by _Device ID_. You should see three similar traces overlapping from your three devices. Notice the different patterns of Motor Power usage across your devices. DEVICE001 performs well for a period and then motor power usage slowly degrades, DEVICE002 continues to perform well even after a long period of usage, and DEVICE003’s motor power usage drops very suddenly.
+2. Select the _Analytics_ tab, then choose the _Rod Pump – All devices_ device group. Under Telemetry select _Motor Power_, split by _Device ID_, and click _Analyze_. Under _Timeframe_, adjust your window to show data from the previous 15 minutes.
+
+    ![Motor power telemetry graphing options are displayed. The graph shows a line with a drop off.](media/iot-central-analytics-tab.png "Focus Telemetry Chart to Motor Power")
+
+    ![Motor power telemetry graphing options are displayed. The graph shows a line with a drop off.](media/iot-central-timeframe.png "Focus Telemetry Chart to Motor Power")
+
+3. You should see three similar traces overlapping from your three devices. Notice the different patterns of Motor Power usage across your devices. DEVICE001 performs well for a period and then motor power usage slowly degrades, DEVICE002 continues to perform well even after a long period of usage, and DEVICE003’s motor power usage drops very suddenly.
 
     ![Motor power telemetry graphing options are displayed. The graph shows a line with a drop off.](media/iot-central-device-performance.png "Focus Telemetry Chart to Motor Power")
 
@@ -489,9 +497,9 @@ The Event Hub we will be creating will act as a collector for data coming into I
 
 4. The Event Hub Feed export will be created, and then started (it may take a few minutes for the export to start)
 
-   ![The Data Export screen displays the status of Event Hub creation. The status of starting is displayed.](media/ce-eventhubfeed-starting.png "Event Hub Export Starting")
+   ![The Data Export screen displays the status of Event Hub creation. The status of starting is displayed.](media/iot-central-data-export-starting.png "Event Hub Export Starting")
 
-   ![The Data Export screen displays the status of Event Hub creation. The status of running is displayed.](media/ce-eventhubfeed-running.png "Event Hub Export Running")
+   ![The Data Export screen displays the status of Event Hub creation. The status of running is displayed.](media/iot-central-data-export-running.png "Event Hub Export Running")
 
 ## Exercise 4: Use Azure Databricks and Azure Machine Learning service to train and deploy predictive model
 
@@ -525,7 +533,7 @@ After training the model, we validate it, then register the model in your Azure 
 
 8. In the `Cmd 62` block when you first connect to your Azure Machine Learning Workspace, you will be prompted to login using a device code flow. Here you will need to navigate to the provided link in your browser and enter the code.
 
-9. Copy the scoring web service URL from the last cell's result after executing it. You will use this value to update a setting in your Azure function in the next exercise to let it know where the model is deployed.
+9. Copy the scoring web service URL from the second-to-last cell's result after executing it (`print(webservice.scoring_uri)`). You will use this value to update a setting in your Azure function in the next exercise to let it know where the model is deployed.
 
 ## Exercise 5: Create an Azure Function to predict pump failure
 
@@ -626,7 +634,7 @@ We will be using [Azure Logic Apps](https://azure.microsoft.com/en-us/services/l
 
    ![Available actions are displayed, enter Azure queues and click When there are messages in queue option.](media/logic-app-messages-in-queue.png "Select Messages in Queue")
 
-7. When prompted to connect to a storage account, select the storage account used as a notification queue in Task 3. 
+7. When prompted to connect to a storage account, select the storage account used as a notification queue in Task 3, and enter _Notification Queue_ as the Connection name. 
 
    ![Available storage accounts to connect to.](media/logic-app-queue-connection.png "Connect to Storage Account")
 
@@ -642,7 +650,8 @@ We will be using [Azure Logic Apps](https://azure.microsoft.com/en-us/services/l
 
    ![Office 365 Outlook sign in required.](media/logic-app-email-sign-in.png "Click Sign in")
 
-11. When prompted, connect to your existing account.
+11. When prompted, connect to your existing account. 
+> **Note:** You may choose to use your corporate account for this step and it may be necessary to complete from the Azure portal accessed from your local machine.
 
    ![Sign in prompt is displayed.](media/logic-app-email-credentials.png "Sign in to your Outlook account")
 
@@ -742,6 +751,7 @@ It is recommended that you never check in secrets, such as connection strings, i
 ### Task 8: Run the Function App locally
 
 1. Select <kbd>Ctrl</kbd>+<kbd>F5</kbd> to run the Azure Function code.
+>**Note:** If you encounter an issue indicating insufficient privileges to run scripts execute the following command in powershell: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`
 
 2. After some time, you should see log statements indicating that a message has been queued (indicating that the Logic App will send a notification email).
 
@@ -810,11 +820,11 @@ Nice work getting to this point! To observe your predictive maintenance solution
 
 1. Stop execution of your Field Device Simulator by entering **Ctrl+C** or clicking the stop button inside Visual Studio Code.
 
-2. From the Azure Portal, navigate to the storage account which contains your notification table. The name will start with "storageaccount" and was referenced in Exercise 7 - Task 2.
+2. From the Azure Portal, navigate to the storage account which contains your notification table. The name will start with "storageaccountfab" and was referenced in Exercise 5 - Task 2.
 
 3. From the storage account, select **Storage Explorer (preview)** from the sidebar menu, and then click into the DeviceNotifications table underneath *TABLES*. For each row of data listed, right-click and select **Delete**. This step removes the records of any alerts being sent and will allow another set of notifications to be sent within a 24-hour time period.
 
-4. Restart your Field Device Simulator by entering **F5** inside Visual Studio Code.
+4. Restart your Field Device Simulator by entering **F5** inside Visual Studio Code. Select `1` as the operation to perform once again.
 
 5. From IoT Central, you should be able to observe your streaming data and devices performing at high levels soon after restarting the simulator. Note: if your device is performing at a "low" level try cycling the power under the *Commands* tab. Once performance begins to degrade you should expect to receive automated alerts.
 

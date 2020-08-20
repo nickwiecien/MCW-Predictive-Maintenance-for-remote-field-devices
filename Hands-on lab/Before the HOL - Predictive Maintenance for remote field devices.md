@@ -142,7 +142,7 @@ appears, proceed with installing the packages listed here.
 ## Required Installations
 
 1. Microsoft Azure subscription (non-Microsoft subscription, must be a pay-as-you subscription).
-2. [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+2. [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 3. [Node.js](https://nodejs.org/en/)
 4. [Visual Studio Code](https://code.visualstudio.com/) version 1.39 or greater
 5. [C# Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
@@ -253,7 +253,7 @@ Download the lab artifacts from GitHub.
 
 1. In a web browser inside your virtual machine, navigate to the [Predictive Maintenance for remote field devices GitHub repo](https://github.com/nickwiecien/MCW-Predictive-Maintenance-for-remote-field-devices).
 
-2. On the repo page, select **Clone or download**, then select **Download ZIP**.
+2. On the repo page, select the **Code** button, then select **Download ZIP**.
 
    ![Download .zip containing the repository](media/github-download-repo.png 'Download ZIP')
 
