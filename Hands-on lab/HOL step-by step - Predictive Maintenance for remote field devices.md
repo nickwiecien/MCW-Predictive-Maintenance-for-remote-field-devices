@@ -389,7 +389,7 @@ After observing the failure of two of the rod pumps, you are able cycle the powe
 
 3. The simulator will also indicate that the command has been received from the cloud. Note in the output of the simulator, that DEVICE003 is no longer sending telemetry immediately after being toggled off but resumes once it is toggled back on.
 
-    ![Command prompt displays several messages. Simulator showing DEVICE001 received the cloud message. Device power cycle is displayed.](media/Iot-central-simulator-prompt.png "Simulator showing DEVICE001 received the cloud message")
+    ![Command prompt displays several messages. Simulator showing DEVICE001 received the cloud message. Device power cycle is displayed.](media/iot-central-simulator-prompt.png "Simulator showing DEVICE001 received the cloud message")
 
 4. After a few moments, return to the _Analytics_ tab and review the Motor Power telemetry for DEVICE003 in IoT Central. Note the presence of a dotted line connecting two segments of active telemetry data. Also, observe that motor power usage moves back to its original levels after being cycled!
 
