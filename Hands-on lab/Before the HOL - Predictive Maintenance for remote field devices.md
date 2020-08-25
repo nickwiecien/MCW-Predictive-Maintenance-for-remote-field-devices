@@ -142,7 +142,7 @@ appears, proceed with installing the packages listed here.
 ## Required Installations
 
 1. Microsoft Azure subscription (non-Microsoft subscription, must be a pay-as-you subscription).
-2. [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+2. [.NET Core SDK 3.1.107](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 3. [Node.js](https://nodejs.org/en/)
 4. [Visual Studio Code](https://code.visualstudio.com/) version 1.39 or greater
 5. [C# Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)

@@ -95,7 +95,7 @@ The diagram above shows the components of IoT Central's architecture that pertai
 ## Requirements
 
 1. Microsoft Azure subscription (non-Microsoft subscription, must be a pay-as-you subscription).
-2. [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+2. [.NET Core SDK 3.1.107](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 3. [Visual Studio Code](https://code.visualstudio.com/) version 1.39 or greater
 4. [C# Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 5. [Azure Functions Core Tools version 2.x (using NPM or Chocolatey - see readme on GitHub repository)](https://github.com/Azure/azure-functions-core-tools)
